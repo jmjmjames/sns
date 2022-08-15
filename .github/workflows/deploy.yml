@@ -29,4 +29,4 @@ jobs:
           # Email that you use with heroku
           heroku_email: chungjm0711@gmail.com
           # The appname to use for deploying/updating
-          heroku_app_name: sns
+          heroku_app_name: sns-jm
