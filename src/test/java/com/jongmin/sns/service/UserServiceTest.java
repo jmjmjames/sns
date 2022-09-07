@@ -1,6 +1,6 @@
 package com.jongmin.sns.service;
 
-import com.jongmin.sns.domain.User;
+import com.jongmin.sns.domain.user.User;
 import com.jongmin.sns.dto.request.user.UserJoinRequest;
 import com.jongmin.sns.dto.request.user.UserLoginRequest;
 import com.jongmin.sns.exception.ErrorCode;

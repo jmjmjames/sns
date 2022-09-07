@@ -1,6 +1,6 @@
 package com.jongmin.sns.repository;
 
-import com.jongmin.sns.domain.User;
+import com.jongmin.sns.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

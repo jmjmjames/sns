@@ -1,7 +1,7 @@
 package com.jongmin.sns.fixture;
 
-import com.jongmin.sns.domain.User;
-import com.jongmin.sns.domain.constant.UserRole;
+import com.jongmin.sns.domain.user.User;
+import com.jongmin.sns.domain.user.UserRole;
 import com.jongmin.sns.dto.UserDto;
 
 public class UserFixture {
