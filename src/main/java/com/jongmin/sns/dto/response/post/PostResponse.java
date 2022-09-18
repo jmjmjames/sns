@@ -10,12 +10,12 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 public final class PostResponse {
-    private final Long id;
-    private final String title;
-    private final String body;
-    private final UserResponse user;
-    private final LocalDateTime registeredAt;
-    private final LocalDateTime updatedAt;
+    private Long id;
+    private String title;
+    private String body;
+    private UserResponse user;
+    private LocalDateTime registeredAt;
+    private LocalDateTime updatedAt;
 
     public static PostResponse fromDto(PostDto dto) {
         return new PostResponse(

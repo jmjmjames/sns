@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public final class Response<T> {
-    private final String resultCode;
-    private final T result;
+    private String resultCode;
+    private T result;
 
     public static Response<Void> error(String errorCode) {
         return new Response<>(errorCode, null);
