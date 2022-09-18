@@ -1,6 +1,6 @@
 package com.jongmin.sns.dto.security;
 
-import com.jongmin.sns.domain.constant.UserRole;
+import com.jongmin.sns.domain.user.UserRole;
 import com.jongmin.sns.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
