@@ -1,11 +1,11 @@
-package com.jongmin.sns.configuration;
+package com.jongmin.sns.global.security;
 
-import com.jongmin.sns.configuration.filter.JwtTokenFilter;
-import com.jongmin.sns.exception.CustomAuthenticationEntryPoint;
-import com.jongmin.sns.service.UserService;
+import com.jongmin.sns.global.exception.CustomAuthenticationEntryPoint;
+import com.jongmin.sns.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
     @Value("${jwt.secret-key}")
@@ -24,7 +24,9 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().regexMatchers("^(?!/api/).*");
+        web.ignoring()
+                .regexMatchers("^(?!/api/).*")
+                .antMatchers(HttpMethod.POST, "/api/*/users/join", "/api/*/users/login");
     }
 
     @Override
@@ -32,7 +34,6 @@ public class AuthenticationConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("**.json", "/", "**.js", "**.html", "**.jpg", "**.png", "**/static/**").permitAll()
-                .antMatchers("/api/*/users/join", "/api/*/users/login").permitAll()
                 .antMatchers("/api/**").authenticated()
                 .and()
                 .sessionManagement()
