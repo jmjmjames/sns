@@ -1,8 +1,9 @@
-package com.jongmin.sns.dto;
+package com.jongmin.sns.domain.alarm.dto;
 
-import com.jongmin.sns.domain.alarm.Alarm;
-import com.jongmin.sns.domain.alarm.AlarmArgs;
-import com.jongmin.sns.domain.alarm.AlarmType;
+import com.jongmin.sns.domain.alarm.entity.Alarm;
+import com.jongmin.sns.domain.alarm.entity.AlarmArgs;
+import com.jongmin.sns.domain.alarm.entity.AlarmType;
+import com.jongmin.sns.domain.user.dto.UserDto;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class AlarmDto {
+
     private Long id;
     private UserDto userDto;
     private AlarmType alarmType;
@@ -23,10 +25,10 @@ public class AlarmDto {
         return alarmType.getAlarmText();
     }
 
-    public static AlarmDto fromEntity(Alarm alarm) {
+    public static AlarmDto from(Alarm alarm) {
         return AlarmDto.builder()
                 .id(alarm.getId())
-                .userDto(UserDto.fromEntity(alarm.getUser()))
+                .userDto(UserDto.from(alarm.getUser()))
                 .alarmType(alarm.getAlarmType())
                 .args(alarm.getArgs())
                 .createdAt(alarm.getCreatedAt())

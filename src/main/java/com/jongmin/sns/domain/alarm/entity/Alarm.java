@@ -1,7 +1,7 @@
-package com.jongmin.sns.domain.alarm;
+package com.jongmin.sns.domain.alarm.entity;
 
-import com.jongmin.sns.domain.BaseTimeEntity;
-import com.jongmin.sns.domain.user.User;
+import com.jongmin.sns.domain.user.entity.User;
+import com.jongmin.sns.global.entity.BaseTimeEntity;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.AccessLevel;
 import lombok.Getter;

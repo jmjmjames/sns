@@ -1,4 +1,4 @@
-package com.jongmin.sns.domain.alarm;
+package com.jongmin.sns.domain.alarm.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

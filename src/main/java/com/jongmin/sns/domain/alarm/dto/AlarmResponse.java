@@ -1,6 +1,5 @@
-package com.jongmin.sns.dto.response.alarm;
+package com.jongmin.sns.domain.alarm.dto;
 
-import com.jongmin.sns.dto.AlarmDto;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -15,7 +14,7 @@ public class AlarmResponse {
     private LocalDateTime updatedAt;
     private LocalDateTime removedAt;
 
-    public static AlarmResponse fromDto(AlarmDto dto) {
+    public static AlarmResponse from(AlarmDto dto) {
         return AlarmResponse.builder()
                 .id(dto.getId())
                 .text(dto.getAlarmText())
