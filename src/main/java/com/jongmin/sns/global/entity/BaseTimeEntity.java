@@ -1,4 +1,4 @@
-package com.jongmin.sns.domain;
+package com.jongmin.sns.global.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -11,8 +11,8 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @Getter
-@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTimeEntity {
 
     @CreatedDate
@@ -25,5 +25,4 @@ public abstract class BaseTimeEntity {
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
-
 }

@@ -1,6 +1,7 @@
-package com.jongmin.sns.domain;
+package com.jongmin.sns.domain.post.entity;
 
-import com.jongmin.sns.domain.user.User;
+import com.jongmin.sns.domain.user.entity.User;
+import com.jongmin.sns.global.entity.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.Objects;
 @Table(name = "posts")
 @Entity
 public class Post extends BaseTimeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

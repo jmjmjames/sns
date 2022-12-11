@@ -19,11 +19,12 @@ import java.util.Objects;
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 @SQLDelete(sql = "UPDATE alarm SET deleted_at = NOW() WHERE id = ?")
 @Where(clause = "deleted_at is NULL")
-@Table(indexes = {
+@Table(name = "alarm", indexes = {
         @Index(name = "user_id_idx", columnList = "user_id")
 })
 @Entity
 public class Alarm extends BaseTimeEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,8 +52,12 @@ public class Alarm extends BaseTimeEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Alarm alarm = (Alarm) o;
         return id.equals(alarm.id);
     }

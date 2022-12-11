@@ -14,7 +14,5 @@ public interface AlarmRepository extends JpaRepository<Alarm, Long> {
             countQuery = "select count(a) from Alarm a where a.user = :user")
     Page<Alarm> findAllByUser(@Param("user") User user, Pageable pageable);
 
-
     Page<Alarm> findAllByUserId(Long userId, Pageable pageable);
-
 }
