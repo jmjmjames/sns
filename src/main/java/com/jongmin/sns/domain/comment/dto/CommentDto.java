@@ -1,26 +1,24 @@
-package com.jongmin.sns.dto;
+package com.jongmin.sns.domain.comment.dto;
 
-import com.jongmin.sns.domain.Comment;
-import lombok.AllArgsConstructor;
+import com.jongmin.sns.domain.comment.entity.Comment;
+import java.time.LocalDateTime;
 import lombok.Builder;
 import lombok.Getter;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Builder
-@AllArgsConstructor
-public final class CommentDto {
-    private Long id;
-    private String comment;
-    private Long userId;
-    private String userName;
-    private Long postId;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
-    private LocalDateTime deletedAt;
+public class CommentDto {
 
-    public static CommentDto fromEntity(Comment comment) {
+    private final Long id;
+    private final String comment;
+    private final Long userId;
+    private final String userName;
+    private final Long postId;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime modifiedAt;
+    private final LocalDateTime deletedAt;
+
+    public static CommentDto from(Comment comment) {
         return CommentDto.builder()
                 .id(comment.getId())
                 .comment(comment.getComment())

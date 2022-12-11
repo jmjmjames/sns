@@ -1,6 +1,6 @@
-package com.jongmin.sns.dto.response.post;
+package com.jongmin.sns.domain.post.dto.response;
 
-import com.jongmin.sns.dto.CommentDto;
+import com.jongmin.sns.domain.comment.dto.CommentDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,18 +9,18 @@ import java.time.LocalDateTime;
 
 @Getter
 @Builder
-@AllArgsConstructor
-public final class CommentResponse {
-    private Long id;
-    private String comment;
-    private Long userId;
-    private String userName;
-    private Long postId;
-    private LocalDateTime registeredAt;
-    private LocalDateTime updatedAt;
-    private LocalDateTime removedAt;
+public class CommentResponse {
 
-    public static CommentResponse fromDto(CommentDto dto) {
+    private final Long id;
+    private final String comment;
+    private final Long userId;
+    private final String userName;
+    private final Long postId;
+    private final LocalDateTime registeredAt;
+    private final LocalDateTime updatedAt;
+    private final LocalDateTime removedAt;
+
+    public static CommentResponse from(CommentDto dto) {
         return CommentResponse.builder()
                 .id(dto.getId())
                 .comment(dto.getComment())
@@ -32,5 +32,4 @@ public final class CommentResponse {
                 .removedAt(dto.getDeletedAt())
                 .build();
     }
-
 }

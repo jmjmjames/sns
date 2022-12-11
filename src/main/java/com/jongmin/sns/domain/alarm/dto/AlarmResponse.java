@@ -8,11 +8,12 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class AlarmResponse {
-    private Long id;
-    private String text;
-    private LocalDateTime registeredAt;
-    private LocalDateTime updatedAt;
-    private LocalDateTime removedAt;
+
+    private final Long id;
+    private final String text;
+    private final LocalDateTime registeredAt;
+    private final LocalDateTime updatedAt;
+    private final LocalDateTime removedAt;
 
     public static AlarmResponse from(AlarmDto dto) {
         return AlarmResponse.builder()

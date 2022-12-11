@@ -1,4 +1,4 @@
-package com.jongmin.sns.dto.response;
+package com.jongmin.sns.global.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,8 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public final class Response<T> {
-    private String resultCode;
-    private T result;
+
+    private final String resultCode;
+    private final T result;
 
     public static Response<Void> error(String errorCode) {
         return new Response<>(errorCode, null);
@@ -32,5 +33,4 @@ public final class Response<T> {
                 "\"resultCode\":" + "\"" + resultCode + "\"," +
                 "\"result\":" + result + "}";
     }
-
 }

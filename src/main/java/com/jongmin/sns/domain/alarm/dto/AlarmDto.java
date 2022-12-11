@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 @Builder
 public class AlarmDto {
 
-    private Long id;
-    private UserDto userDto;
-    private AlarmType alarmType;
-    private AlarmArgs args;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
-    private LocalDateTime deletedAt;
+    private final Long id;
+    private final UserDto userDto;
+    private final AlarmType alarmType;
+    private final AlarmArgs args;
+    private final LocalDateTime createdAt;
+    private final LocalDateTime modifiedAt;
+    private final LocalDateTime deletedAt;
 
     public String getAlarmText() {
         return alarmType.getAlarmText();
